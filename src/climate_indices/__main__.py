@@ -107,7 +107,7 @@ def _validate_args(args):
 
         # validate the precipitation file itself
         #with xr.open_dataset(args.netcdf_precip) as dataset_precip: # MMY@Sep2024 to solve reading AGCD rainfall problem
-        with xr.open_dataset(args.netcdf_precip, engine='h5netcdf') as dataset_precip: 
+        with xr.open_dataset(args.netcdf_precip, engine='netcdf4') as dataset_precip: 
             # MMY@Sep2024 to solve reading AGCD rainfall problem
             # make sure we have a valid precipitation variable name
             if args.var_name_precip not in dataset_precip.variables:
